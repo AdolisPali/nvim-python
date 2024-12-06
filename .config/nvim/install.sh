@@ -36,5 +36,5 @@ source ~/.bashrc
 npm install -g pyright
 
 apt install python3-pip -y
-pip install pydebug
+pip3 install pydebug
 pip3 install neovim
