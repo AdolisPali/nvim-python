@@ -34,3 +34,6 @@ source ~/.bashrc
 
 # Install Pyright globally using npm
 npm install -g pyright
+
+apt install python3-pip -y
+pip install pydebug
