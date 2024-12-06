@@ -29,5 +29,8 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4        
 vim.o.smartindent = true  
 
+require'lspconfig'.pyright.setup{}
+vim.g.python3_host_prog = '/usr/bin/python3'
+
 
 
