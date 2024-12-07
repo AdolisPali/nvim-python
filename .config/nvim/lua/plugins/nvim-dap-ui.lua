@@ -1,14 +1,4 @@
 return {
-  "williamboman/mason.nvim",
-  lazy = false,
-  config = function()
-    require("mason").setup ()
-  end
-}
-root@4a9f1fc53ea4:~/.config/nvim/lua/plugins# ls
-dap-python.lua  dap-ui.lua  lsp.lua  mason.lua  nvim-tree.lua
-root@4a9f1fc53ea4:~/.config/nvim/lua/plugins# cat dap-python.lua
-return {
   'mfussenegger/nvim-dap-python',
   ft = 'python',
   lazy = false,
