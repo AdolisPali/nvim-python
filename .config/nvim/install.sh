@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Update and install necessary packages
-sudo apt update
-sudo apt install curl git -y
+apt update
+apt install curl git -y
 
 # Remove any existing Neovim installation and download the latest version
 rm -rf /opt/nvim
