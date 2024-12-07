@@ -1,15 +1,32 @@
 return {
-  -- https://github.com/rcarriga/nvim-dap-ui
-  'rcarriga/nvim-dap-ui',
-  event = 'VeryLazy',
+  "williamboman/mason.nvim",
+  lazy = false,
+  config = function()
+    require("mason").setup ()
+  end
+}
+root@4a9f1fc53ea4:~/.config/nvim/lua/plugins# ls
+dap-python.lua  dap-ui.lua  lsp.lua  mason.lua  nvim-tree.lua
+root@4a9f1fc53ea4:~/.config/nvim/lua/plugins# cat dap-python.lua
+return {
+  'mfussenegger/nvim-dap-python',
+  ft = 'python',
+  lazy = false,
   dependencies = {
-    -- https://github.com/mfussenegger/nvim-dap
     'mfussenegger/nvim-dap',
-    -- https://github.com/nvim-neotest/nvim-nio
+  },
+  config = function ()
+    require('dap-python').setup('~/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
+  end
+}
+root@4a9f1fc53ea4:~/.config/nvim/lua/plugins# cat dap-ui.lua
+return {
+  'rcarriga/nvim-dap-ui',
+  lazy = false,
+  dependencies = {
+    'mfussenegger/nvim-dap',
     'nvim-neotest/nvim-nio',
-    -- https://github.com/theHamsta/nvim-dap-virtual-text
     'theHamsta/nvim-dap-virtual-text', -- inline variable text while debugging
-    -- https://github.com/nvim-telescope/telescope-dap.nvim
     'nvim-telescope/telescope-dap.nvim', -- telescope integration with dap
   },
   opts = {
@@ -60,14 +77,11 @@ return {
     local dap = require('dap')
     local dapui = require('dapui')
 
-    -- Set up dap-ui with the options provided
     dapui.setup(opts)
 
-    -- Customize breakpoint highlights and icons with simple letters
     vim.api.nvim_set_hl(0, "DapStoppedHl", { fg = "#98BB6C", bg = "#2A2A2A", bold = true })
     vim.api.nvim_set_hl(0, "DapStoppedLineHl", { bg = "#204028", bold = true })
 
-    -- Define simple letter icons for breakpoints
     vim.fn.sign_define('DapStopped', { text = 'S', texthl = 'DapStoppedHl', linehl = 'DapStoppedLineHl', numhl = '' }) -- Stopped
     vim.fn.sign_define('DapBreakpoint', { text = 'B', texthl = 'DiagnosticSignError', linehl = '', numhl = '' }) -- Breakpoint
     vim.fn.sign_define('DapBreakpointCondition', { text = 'C', texthl = 'DiagnosticSignWarn', linehl = '', numhl = '' }) -- Conditional Breakpoint
@@ -101,4 +115,3 @@ return {
     map('n', '<F4>', '<Cmd>lua require("dapui").toggle()<CR>', keymap_opts)
   end
 }
-
