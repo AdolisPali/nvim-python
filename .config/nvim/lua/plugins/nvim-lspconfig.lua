@@ -1,12 +1,9 @@
--- Python LSP Configuration
 return {
-  -- LSP Configuration for Python (Pyright)
   'neovim/nvim-lspconfig',
-  event = 'VeryLazy',
+  lazy = false,
   config = function()
     local lspconfig = require('lspconfig')
 
-    -- Python LSP (Pyright)
     lspconfig.pyright.setup({
       on_attach = function(client, bufnr)
         -- Key bindings for LSP
@@ -18,14 +15,5 @@ return {
         vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gs', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', { noremap = true, silent = true })
       end,
     })
-
-    -- Globally configure all LSP floating preview popups (like hover, signature help, etc)
-    local open_floating_preview = vim.lsp.util.open_floating_preview
-    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-      opts = opts or {}
-      opts.border = opts.border or "rounded" -- Set border to rounded
-      return open_floating_preview(contents, syntax, opts, ...)
-    end
   end
 }
-
