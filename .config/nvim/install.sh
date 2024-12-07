@@ -32,16 +32,5 @@ tar -xvzf /opt/node-v18.20.5-linux-x64.tar.gz -C /opt
 export PATH=/opt/node-v18.20.5-linux-x64/bin:$PATH
 source ~/.bashrc
 
-# Install Pyright globally using npm
-npm install -g pyright
-
 apt install python3-pip -y
-!pip3 install pydebug
-!pip install pydebug
-!pip3 install neovim
-
-
-apt install python3-pip -y
-pip3 install pydebug
-pip install pydebug
 pip3 install neovim
