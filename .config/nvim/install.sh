@@ -35,5 +35,6 @@ source ~/.bashrc
 apt install python3-pip -y
 pip3 install neovim
 apt install python3-venv -y
+apt-get install python3-systemd -y
 
 pip install flask
