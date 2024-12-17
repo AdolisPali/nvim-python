@@ -1,16 +1,4 @@
 return {
-  'mfussenegger/nvim-dap-python',
-  ft = 'python',
-  lazy = false,
-  dependencies = {
-    'mfussenegger/nvim-dap',
-  },
-  config = function ()
-    require('dap-python').setup('~/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
-  end
-}
-root@4a9f1fc53ea4:~/.config/nvim/lua/plugins# cat dap-ui.lua
-return {
   'rcarriga/nvim-dap-ui',
   lazy = false,
   dependencies = {
